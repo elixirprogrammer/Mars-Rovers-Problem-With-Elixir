@@ -15,13 +15,17 @@ To run the test:
 
 ### Modules
 
-**Position** Starts an agent that defines a struct to store the state of the position data.
+**Position** 
+Starts an agent that defines a struct to store the state of the position data.
 
-**Rover** Executes rover commands.
+**Rover** 
+Executes rover commands.
 
-**Simulator** Starts mission simulation and returns output.
+**Simulator** 
+Starts mission simulation and returns output.
 
-**Mars** Starts the mission.
+**Mars** 
+Starts the mission.
 
 
 

@@ -1,21 +1,23 @@
-# Mars
+# Mars Rovers Problem Botcity Tech Challenge Solution Made By | [Anthony Gonzalez](https://elixirprogrammer.com "elixirprogrammer.com")
 
-**TODO: Add description**
+### Installation and running this solution
 
-## Installation
+#### Project Operating System Dependencies Requirements
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `botcity_coding_problem` to your list of dependencies in `mix.exs`:
+This solution was made with Elixir, to run locally the following is needed:
 
-```elixir
-def deps do
-  [
-    {:botcity_coding_problem, "~> 0.1.0"}
-  ]
-end
-```
+* Elixir 1.13 or later
+* Erlang 22 or later
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/botcity_coding_problem>.
+To run the test:
 
+`$ mix test`
+
+### Modules
+
+**Position** Starts an agent that defines a struct to store the state of the position data.
+**Rover** Executes rover commands
+**Simulator** Starts mission simulation and returns output
+**Mars** Starts the mission
+
+**TODO: Add more tests and error handling.**

@@ -3,16 +3,8 @@ defmodule Mars do
   Documentation for `Mars`.
   """
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Mars.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def simulate_mission(input) do
+    Simulator.start_mission(input)
   end
+
 end

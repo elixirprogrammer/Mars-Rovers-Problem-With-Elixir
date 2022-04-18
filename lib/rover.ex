@@ -10,7 +10,9 @@ defmodule Rover do
   """
   @spec move(instructions :: map()) :: struct()
   def move(instructions) do
-    :ok = instructions.init_pos |> Enum.each(fn {k, v} -> Position.update(k, v) end)
+    :ok =
+      instructions.initial_position
+      |> Enum.each(fn {key, value} -> Position.update(key, value) end)
 
     instructions.commands
     |> Enum.each(
@@ -29,12 +31,15 @@ defmodule Rover do
   defp execute_command(:l, direction) when direction == "N" do
     :ok = Position.update(:direction, "W")
   end
+
   defp execute_command(:l, direction) when direction == "S" do
     :ok = Position.update(:direction, "E")
   end
+
   defp execute_command(:l, direction) when direction == "E" do
     :ok = Position.update(:direction, "N")
   end
+
   defp execute_command(:l, direction) when direction == "W" do
     :ok = Position.update(:direction, "S")
   end
@@ -43,12 +48,15 @@ defmodule Rover do
   defp execute_command(:r, direction) when direction == "N" do
     :ok = Position.update(:direction, "E")
   end
+
   defp execute_command(:r, direction) when direction == "S" do
     :ok = Position.update(:direction, "W")
   end
+
   defp execute_command(:r, direction) when direction == "E" do
     :ok = Position.update(:direction, "S")
   end
+
   defp execute_command(:r, direction) when direction == "W" do
     :ok = Position.update(:direction, "N")
   end
@@ -58,14 +66,17 @@ defmodule Rover do
     %{y: y} = Position.get()
     :ok = Position.update(:y, y + 1)
   end
+
   defp execute_command(:m, direction) when direction == "S" do
     %{y: y} = Position.get()
     :ok = Position.update(:y, y - 1)
   end
+
   defp execute_command(:m, direction) when direction == "E" do
     %{x: x} = Position.get()
     :ok = Position.update(:x, x + 1)
   end
+
   defp execute_command(:m, direction) when direction == "W" do
     %{x: x} = Position.get()
     :ok = Position.update(:x, x - 1)

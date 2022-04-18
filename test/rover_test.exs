@@ -2,8 +2,12 @@ defmodule RoverTest do
   use ExUnit.Case
 
   setup do
-    assert {:ok, _pid} = Position.start_link
-    instructions = %{init_pos: %{x: 0, y: 0, direction: "N"}, commands: []}
+    assert {:ok, _pid} = Position.start_link()
+
+    instructions = %{
+      initial_position: %{x: 0, y: 0, direction: "N"},
+      commands: []
+    }
 
     %{instructions: instructions}
   end

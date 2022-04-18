@@ -41,14 +41,14 @@ defmodule Simulator do
     commands = List.last(chunk)
     init_pos_list = String.split(initial_position)
 
-    cordinates = %{
+    coordinates = %{
       x: init_pos_list |> Enum.at(0) |> String.to_integer(),
       y: init_pos_list |> Enum.at(1) |> String.to_integer(),
       direction: init_pos_list |> Enum.at(2)
     }
 
     %{
-      init_pos: cordinates,
+      initial_position: coordinates,
       commands: commands |> String.split("", trim: true)
     }
   end

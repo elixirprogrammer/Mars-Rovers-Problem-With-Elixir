@@ -5,8 +5,6 @@ defmodule Simulator do
 
   @spec start_mission(input :: bitstring()) :: bitstring()
   def start_mission(input) do
-    {:ok, _pid} = Position.start_link()
-
     chunk_input_string(input)
     |> get_instructions()
     |> Enum.map(&Rover.move(&1))

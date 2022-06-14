@@ -19,64 +19,59 @@ defmodule Rover do
     |> Enum.reduce(
       init_position,
       fn command, position ->
-        execute_command(
-          command
-          |> String.downcase()
-          |> String.to_atom(),
-          position
-        )
+        execute_command(command, position)
       end
     )
   end
 
   # Commands that matches when spinning left.
-  defp execute_command(:l, position) when position.direction == "N" do
+  defp execute_command("L", position) when position.direction == "N" do
     %{position | direction: "W"}
   end
 
-  defp execute_command(:l, position) when position.direction == "S" do
+  defp execute_command("L", position) when position.direction == "S" do
     %{position | direction: "E"}
   end
 
-  defp execute_command(:l, position) when position.direction == "E" do
+  defp execute_command("L", position) when position.direction == "E" do
     %{position | direction: "N"}
   end
 
-  defp execute_command(:l, position) when position.direction == "W" do
+  defp execute_command("L", position) when position.direction == "W" do
     %{position | direction: "S"}
   end
 
   # Commands that matches when spinning right.
-  defp execute_command(:r, position) when position.direction == "N" do
+  defp execute_command("R", position) when position.direction == "N" do
     %{position | direction: "E"}
   end
 
-  defp execute_command(:r, position) when position.direction == "S" do
+  defp execute_command("R", position) when position.direction == "S" do
     %{position | direction: "W"}
   end
 
-  defp execute_command(:r, position) when position.direction == "E" do
+  defp execute_command("R", position) when position.direction == "E" do
     %{position | direction: "S"}
   end
 
-  defp execute_command(:r, position) when position.direction == "W" do
+  defp execute_command("R", position) when position.direction == "W" do
     %{position | direction: "N"}
   end
 
   # Commands that matches when moving from its current spot.
-  defp execute_command(:m, position) when position.direction == "N" do
+  defp execute_command("M", position) when position.direction == "N" do
     %{position | y: position.y + 1}
   end
 
-  defp execute_command(:m, position) when position.direction == "S" do
+  defp execute_command("M", position) when position.direction == "S" do
     %{position | y: position.y - 1}
   end
 
-  defp execute_command(:m, position) when position.direction == "E" do
+  defp execute_command("M", position) when position.direction == "E" do
     %{position | x: position.x + 1}
   end
 
-  defp execute_command(:m, position) when position.direction == "W" do
+  defp execute_command("M", position) when position.direction == "W" do
     %{position | x: position.x - 1}
   end
 end
